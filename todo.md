@@ -1,5 +1,4 @@
 # Outline:
----------
 
 ### Trello -> Todoist
 - connect to Trello
@@ -30,9 +29,9 @@ _______________________________________________________________________________
 _______________________________________________________________________________
 
 # Log:
----------
 
 #### 06/25/14 
 __DONE__ sinatra app skeleton
-__DONE__ setup rspec 
+__DONE__ setup rspec
+__DONE__ setup capybara acceptance testing 
 
