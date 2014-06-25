@@ -7,9 +7,9 @@
 - automatically assign all cards in doing list to me
 - connect to todoist
 - turn names of all cards into todo items in todoist
-- save list of cards currently in doing to local storage
-- only add todo items for cards that are not already in list in local storage
-- remove items from local storage once they have been removed from list
+- save list of cards currently in doing to database
+- only add todo items for cards that are not already in list in database
+- remove items from database once they have been removed from list
 - add checklist items on cards as subtasks for card's main task in todoist
 - move to host
 

@@ -5,6 +5,7 @@ gem 'sinatra'
 
 group :development, :test do 
   gem 'rspec'
+  gem 'capybara'
   gem 'nyan-cat-formatter'
   gem 'guard-rspec'
   gem 'guard-spork'
