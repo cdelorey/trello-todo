@@ -1,9 +1,6 @@
 # Outline:
 ---------
 
-### Setup
-- setup rspec 
-
 ### Trello -> Todoist
 - connect to Trello
 - get all cards from doing list
@@ -37,4 +34,5 @@ _______________________________________________________________________________
 
 #### 06/25/14 
 __DONE__ sinatra app skeleton
+__DONE__ setup rspec 
 
