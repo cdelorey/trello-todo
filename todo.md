@@ -1,7 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- connect to Trello
 - get all cards from doing list
 - automatically assign all cards in doing list to me
 - connect to todoist
@@ -34,4 +33,7 @@ _______________________________________________________________________________
 __DONE__ sinatra app skeleton
 __DONE__ setup rspec
 __DONE__ setup capybara acceptance testing 
+
+#### 06/28/14
+__DONE__ connect to Trello
 
