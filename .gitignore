@@ -1,2 +1,3 @@
 config_keys.rb
 development.db
+coverage
