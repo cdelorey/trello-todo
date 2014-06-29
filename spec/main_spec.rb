@@ -1,5 +1,6 @@
 require File.expand_path '../spec_helper.rb', __FILE__
 require 'trello'
+require 'todoist'
 
 describe "Trello-Todo App" do 
   it "allows accessing the main page" do
@@ -13,5 +14,7 @@ describe "Trello-Todo App" do
   end
 
   it "connects to Todoist" do
+    projects = Todoist::Project.all
+    expect(projects.first).to respond_to(:name)
   end
 end

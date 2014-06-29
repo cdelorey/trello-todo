@@ -3,6 +3,7 @@ ruby '2.1.1'
 
 gem 'sinatra'
 gem 'ruby-trello'
+gem 'todoist'
 
 group :development, :test do 
   gem 'rspec'
