@@ -1,7 +1,9 @@
 # Outline:
 
 ### Trello -> Todoist
+- change test code to use vcr
 - get all cards from doing list
+- store cards in database
 - automatically assign all cards in doing list to me
 - turn names of all cards into todo items in todoist
 - save list of cards currently in doing to database
@@ -40,4 +42,4 @@ __DONE__ create card model
 
 ### 06/29/14
 __DONE__ setup code coverage tool
-
+__DONE__ fix database issue 
