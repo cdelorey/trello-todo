@@ -3,7 +3,6 @@
 ### Trello -> Todoist
 - get all cards from doing list
 - automatically assign all cards in doing list to me
-- connect to todoist
 - turn names of all cards into todo items in todoist
 - save list of cards currently in doing to database
 - only add todo items for cards that are not already in list in database
@@ -36,4 +35,6 @@ __DONE__ setup capybara acceptance testing
 
 #### 06/28/14
 __DONE__ connect to Trello
+__DONE__ connect to Todoist
+__DONE__ create card model
 
