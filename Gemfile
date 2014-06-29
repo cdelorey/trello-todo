@@ -16,6 +16,7 @@ group :development, :test do
   gem 'guard-spork'
   gem 'childprocess'
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end
 
 group :production do

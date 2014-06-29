@@ -1,5 +1,4 @@
 require 'simplecov'
-puts "starting simplecov"
 
 SimpleCov.start do
   add_filter "spec/"
