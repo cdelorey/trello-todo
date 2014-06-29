@@ -10,6 +10,7 @@ group :development, :test do
   gem 'capybara'
   gem 'vcr'
   gem 'webmock'
+  gem 'factory_girl'
   gem 'nyan-cat-formatter'
   gem 'guard-rspec'
   gem 'guard-spork'

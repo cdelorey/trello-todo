@@ -1,4 +1,5 @@
 require 'rack/test'
+require 'factory_girl'
 
 require File.expand_path '../../main.rb', __FILE__
 
@@ -10,4 +11,10 @@ module RSpecMixin
   def app() Sinatra::Application end 
 end
 
-RSpec.configure { |c| c.include RSpecMixin }
+RSpec.configure do |c| 
+  c.include RSpecMixin
+  c.include FactoryGirl::Syntax::Methods
+end 
+
+FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
+FactoryGirl.find_definitions
