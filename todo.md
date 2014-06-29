@@ -38,3 +38,6 @@ __DONE__ connect to Trello
 __DONE__ connect to Todoist
 __DONE__ create card model
 
+### 06/29/14
+__DONE__ setup code coverage tool
+

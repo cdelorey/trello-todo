@@ -1,9 +1,8 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'rack/test'
 require 'factory_girl'
-
-require File.expand_path '../../main.rb', __FILE__
-
-ENV['RACK_ENV'] = 'test'
+require File.expand_path '../../src/main.rb', __FILE__
 
 
 module RSpecMixin
