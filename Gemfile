@@ -8,8 +8,6 @@ gem 'todoist'
 group :development, :test do 
   gem 'rspec'
   gem 'capybara'
-  gem 'vcr'
-  gem 'webmock'
   gem 'factory_girl'
   gem 'nyan-cat-formatter'
   gem 'guard-rspec'

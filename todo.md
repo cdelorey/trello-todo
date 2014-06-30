@@ -1,7 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- change test code to use vcr
 - get all cards from doing list
 - store cards in database
 - automatically assign all cards in doing list to me
@@ -43,3 +42,7 @@ __DONE__ create card model
 ### 06/29/14
 __DONE__ setup code coverage tool
 __DONE__ fix database issue 
+__DONE__ setup database_cleaner
+
+### 06/30/14
+__DONE__ tag all tests that make api calls
