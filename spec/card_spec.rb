@@ -11,7 +11,7 @@ describe Card do
   # these tests don't test the card model. 
   # they should probably be moved somewhere else.
   # TODO: refactor card method code
-  context "getting cards from Trello" do
+  context "getting cards from Trello", :api => true do
     let(:trello_card) { get_cards_from_trello.first } 
     # rather than comparind ids, get result id and look up its name
     let(:programming_board) { 1 }

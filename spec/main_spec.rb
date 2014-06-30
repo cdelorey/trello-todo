@@ -8,12 +8,14 @@ describe "Trello-Todo App" do
     expect(last_response).to be_ok
   end
 
-  it "connects to Trello" do
-    me = Member.find("me")
-    expect(me).to respond_to(:username)
+  it "connects to Trello",  :api => true do
+    VCR.use_cassette 'api_response' do
+      me = Member.find("me")
+      expect(me).to respond_to(:username)
+    end
   end
 
-  it "connects to Todoist" do
+  it "connects to Todoist",  :api => true do
     projects = Todoist::Project.all
     expect(projects.first).to respond_to(:name)
   end
