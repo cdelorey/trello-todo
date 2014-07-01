@@ -8,14 +8,15 @@ describe Card do
   it { should respond_to(:id) }
   it { should respond_to(:name) }
 
+
   # these tests don't test the card model. 
   # they should probably be moved somewhere else.
   # TODO: refactor card method code
   context "getting cards from Trello", :api => true do
     let(:trello_card) { get_cards_from_trello.first } 
-    # rather than comparind ids, get result id and look up its name
-    let(:programming_board) { 1 }
-    let(:doing_list) { 2 }
+    let(:programming_board_id) { "5206965b344ba1b52f00060e" }
+    let(:doing_list_id) { "5206965b344ba1b52f000610" }
+
 
     it "gets cards from correct board" do
       expect(trello_card.board_id).to eq(programming_board_id)

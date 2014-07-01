@@ -9,10 +9,8 @@ describe "Trello-Todo App" do
   end
 
   it "connects to Trello",  :api => true do
-    VCR.use_cassette 'api_response' do
-      me = Member.find("me")
-      expect(me).to respond_to(:username)
-    end
+    me = Member.find("me")
+    expect(me).to respond_to(:username)
   end
 
   it "connects to Todoist",  :api => true do

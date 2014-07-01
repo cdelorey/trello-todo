@@ -14,6 +14,10 @@ end
 
 Todoist::Base.setup(TODOIST_API_TOKEN)
 
+helpers do
+  include Cards
+end
+
 # Database --------------------------------------------------------------------
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 
   "sqlite3://#{Dir.pwd}/development.db")
@@ -22,7 +26,7 @@ DataMapper.auto_upgrade!
 DataMapper.auto_migrate! # temporary? necessary only for testing?
 
 # Routes ----------------------------------------------------------------------
-get '/' do 
+get '/' do
   "It works."
 end
 

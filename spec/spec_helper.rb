@@ -16,6 +16,7 @@ RSpec.configure do |c|
   # to run whole test suite including api specs:
   # ALL=true rspec spec
   c.filter_run_excluding api: true unless ENV['ALL']
+  c.include Cards
 end 
 
 FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}

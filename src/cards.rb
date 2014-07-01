@@ -13,22 +13,19 @@ class Card
  # has n, :tasks, :constraint => :destroy 
 end
 
-helpers do
+module Cards
   ##
   # load_cards
   #
   # Loads the trello cards from the "Doing" list on the programming board
   # into the database.
   def get_cards_from_trello
-    board = get_programming_board
+    list = get_doing_list
+    return list.cards
   end
 
-end
-
-
-module Cards
-  def get_programming_board
-    
+  def get_doing_list
+    Trello::List.find("5206965b344ba1b52f000610") 
   end
 end
 
