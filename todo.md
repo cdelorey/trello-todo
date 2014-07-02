@@ -1,7 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- only add todo items for cards that are not already in list in database
 - automatically assign all cards in doing list to me
 - turn names of all cards into todo items in todoist 
 - remove items from database once they have been removed from list
@@ -51,3 +50,5 @@ __DONE__ get all cards from doing list
 __DONE__ save list of cards currently in doing to database
 __DONE__ fix database issue
 __DONE__ cache api results for relevant tests
+__DONE__ fix bug with adding a single card to database
+__DONE__ only add todo items for cards that are not already in list in database
