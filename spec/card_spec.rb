@@ -53,12 +53,12 @@ describe Card do
       end
     end
 
-    context "when card with same name is already stored" do 
-
+    context "when card is already stored" do 
       it "does not store the card" do
-        
+        store_cards_in_database(@cards.first)
+        store_cards_in_database(@cards.first)
+        expect(Card.count).to eq(1)
       end 
-
     end
 
   end
