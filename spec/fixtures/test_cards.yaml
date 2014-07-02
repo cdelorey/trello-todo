@@ -1,0 +1,77 @@
+---
+- !ruby/object:Trello::Card
+  attributes:
+    :id: 12345a
+    :short_id: 53
+    :name: Data Structures and Algorithms in C++
+    :desc: ''
+    :due: 
+    :closed: false
+    :url: https://fake.com/c/JebRfgjt/53-data-structures-and-algorithms-in-c
+    :short_url: https://fake.com/c/JebRfgjt
+    :board_id: bcde3
+    :member_ids: []
+    :list_id: 1435g
+    :pos: 
+    :last_activity_date: 2014-06-24 20:11:48.002000000 Z
+    :card_labels:
+    - color: yellow
+      name: Book
+    - color: orange
+      name: Exercises
+    :cover_image_id: 
+    :badges:
+      votes: 0
+      viewingMemberVoted: false
+      subscribed: false
+      fogbugz: ''
+      checkItems: 13
+      checkItemsChecked: 2
+      comments: 0
+      attachments: 0
+      description: false
+      due: 
+    :card_members: 
+  client: &1 !ruby/object:Trello::Client
+    configuration: !ruby/object:Trello::Configuration
+      developer_public_key: 12345abc
+      member_token: 4567xyz
+    auth_policy: !ruby/object:Trello::Authorization::BasicAuthPolicy
+      developer_public_key: 12345abc
+      member_token: 4567xyz
+- !ruby/object:Trello::Card
+  attributes:
+    :id: 987th
+    :short_id: 19
+    :name: Learn SQL the Hard Way
+    :desc: http://sql.learncodethehardway.org/book/introduction.html
+    :due: 
+    :closed: false
+    :url: https://fake.com/c/D0KCFC3R/19-learn-sql-the-hard-way
+    :short_url: https://fake.com/c/D0KCFC3R
+    :board_id: 999ooo
+    :member_ids: []
+    :list_id: 2g2g2
+    :pos: 
+    :last_activity_date: 2014-06-25 18:09:01.565000000 Z
+    :card_labels:
+    - color: yellow
+      name: Book
+    - color: orange
+      name: Exercises
+    - color: red
+      name: Tutorial
+    :cover_image_id: 
+    :badges:
+      votes: 0
+      viewingMemberVoted: false
+      subscribed: false
+      fogbugz: ''
+      checkItems: 34
+      checkItemsChecked: 4
+      comments: 0
+      attachments: 0
+      description: true
+      due: 
+    :card_members: 
+  client: *1

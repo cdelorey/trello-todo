@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'yaml'
 
 describe Card do
   
@@ -9,7 +10,7 @@ describe Card do
   it { should respond_to(:name) }
 
 
-  # these tests don't test the card model. 
+  # these tests don't test the card model.
   # they should probably be moved somewhere else.
   # TODO: refactor card method code
   context "getting cards from Trello", :api => true do
@@ -30,7 +31,7 @@ describe Card do
 
   context "database" do 
     before(:all) do
-      @cards = get_cards_from_trello
+      @cards = YAML::load(IO.read("spec/fixtures/test_cards.yaml"))
     end
 
     it "is initially empty" do
