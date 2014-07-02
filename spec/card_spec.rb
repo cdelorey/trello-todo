@@ -28,4 +28,38 @@ describe Card do
 
   end
 
+  context "database" do 
+    before(:all) do
+      @cards = get_cards_from_trello
+    end
+
+    it "is initially empty" do
+      expect(Card.count).to eq 0
+    end
+
+    context "adding cards" do
+      before(:each) { store_cards_in_database(@cards) }
+
+      it "stores correct number of cards" do
+        expect(Card.count).to eq @cards.size
+      end
+
+      it "stores cards with correct names" do
+        Card.all(:fields => [:name]).each do |card|
+          expect(["Learn SQL the Hard Way", "Data Structures and Algorithms in C++"])
+          .to include(card.name)
+        end 
+      end
+    end
+
+    context "when card with same name is already stored" do 
+
+      it "does not store the card" do
+        
+      end 
+
+    end
+
+  end
+
 end

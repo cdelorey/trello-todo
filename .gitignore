@@ -1,3 +1,4 @@
 config_keys.rb
 development.db
+test.db
 coverage
