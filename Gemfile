@@ -15,6 +15,7 @@ group :development, :test do
   gem 'childprocess'
   gem 'simplecov', :require => false
   gem 'database_cleaner'
+  gem 'dm-transactions'
 end
 
 group :production do
