@@ -2,6 +2,7 @@ require 'sinatra'
 require 'trello'
 require 'todoist'
 require_relative 'cards'
+require_relative 'tasks'
 require_relative 'config_keys' # temporary
 
 include Trello
@@ -27,17 +28,6 @@ DataMapper.auto_migrate! # temporary? necessary only for testing?
 
 # Routes ----------------------------------------------------------------------
 get '/' do
-  # TESTING:
-  #test_cards = get_cards_from_trello
-  #    test_cards.each do |card|
-  #      puts card.name
-  #      puts card.id
-  #    end
-  store_cards_in_database(get_cards_from_trello)
-  Card.each do |card|
-    puts card.name
-    puts card.id
-  end
   "It works."
 end
 
