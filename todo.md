@@ -57,4 +57,6 @@ __DONE__ only add todo items for cards that are not already in list in database
 __DONE__ create task model
 
 ###07/05/14
+__DONE__ get tasks from todoist
+__DONE__ filter cards based on presence in database
 

@@ -26,6 +26,9 @@ module Cards
 
   # takes a list of cards and removes all cards that are already stored in database
   def filter_cards(cards)
+    cards.select do |card|
+      Card.get(card.id) == nil
+    end
   end
 
   # creates tasks from card names and sends them to todoist

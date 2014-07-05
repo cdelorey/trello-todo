@@ -61,10 +61,19 @@ describe Card do
   end
 
   context "filtering cards" do 
-    it "returns cards that are not yet in the database" do 
+    before(:each) do 
+      @card_in_database = Card.create!(:id => '12345a', :name => "test_card")
+      @card_not_in_database = Card.new
+      @card_not_in_database.attributes = { :id => '6789b', :name => "test_card_2" }
+      @cards = [@card_in_database, @card_not_in_database]
+    end
+
+    it "returns cards that are not yet in the database" do
+      expect(filter_cards(@cards)).to include(@card_not_in_database) 
     end
 
     it "does not return cards that are already in the database" do 
+      expect(filter_cards(@cards)).not_to include(@card_in_database)
     end
   end
 
