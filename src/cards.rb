@@ -33,6 +33,9 @@ module Cards
 
   # creates tasks from card names and sends them to todoist
   def create_todoist_tasks(cards)
+    cards.each do |card|
+      Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID)
+    end
   end
 
   # retrieves all cards from the Doing list in Trello

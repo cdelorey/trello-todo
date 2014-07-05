@@ -2,7 +2,6 @@
 
 ### Trello -> Todoist
 - automatically assign all cards in doing list to me
-- turn names of all cards into todo items in todoist 
 - remove items from database once they have been removed from list
 - add checklist items on cards as subtasks for card's main task in todoist
 - move to host
@@ -59,4 +58,5 @@ __DONE__ create task model
 ###07/05/14
 __DONE__ get tasks from todoist
 __DONE__ filter cards based on presence in database
+__DONE__ turn names of all cards in Doing list into todo items in todoist 
 
