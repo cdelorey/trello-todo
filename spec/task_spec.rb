@@ -8,4 +8,8 @@ describe Task do
   it { should respond_to(:id) }
   it { should respond_to(:name) }
 
+  context "Getting tasks from Todoist", :api => true do
+    pp Todoist::Project.all
+  end
+
 end

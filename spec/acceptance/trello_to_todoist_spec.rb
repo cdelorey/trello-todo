@@ -3,15 +3,15 @@ require 'acceptance/acceptance_helper'
 feature "Trello to Todoist" do
   
   background do
-    visit '/trello'
+    #visit '/trello'
   end
 
-  # Should actually call apis. This is necesary only for the acceptance test. 
-  # Specs will use vcr.
-  given(:card) { get_trello_cards.first }
-  given(:task_names) { get_todoist_task_names } 
+  given(:card) { get_cards_from_trello.first }
+  given(:tasks) { get_tasks_from_todoist } 
 
   scenario "Moving Trello card names to todoist tasks" do
+    move_cards_from_trello_to_todoist
+    task_names = tasks.map { |task| task.content }
     expect(task_names).to include(card.name)
   end
 

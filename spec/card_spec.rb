@@ -10,9 +10,6 @@ describe Card do
   it { should respond_to(:name) }
 
 
-  # these tests don't test the card model.
-  # they should probably be moved somewhere else.
-  # TODO: refactor card method code
   context "getting cards from Trello", :api => true do
     let(:trello_card) { get_cards_from_trello.first } 
     let(:programming_board_id) { "5206965b344ba1b52f00060e" }
@@ -60,6 +57,18 @@ describe Card do
         expect(Card.count).to eq(1)
       end 
     end
+
+  end
+
+  context "filtering cards" do 
+    it "returns cards that are not yet in the database" do 
+    end
+
+    it "does not return cards that are already in the database" do 
+    end
+  end
+
+  context "creating tasks from cards" do 
 
   end
 

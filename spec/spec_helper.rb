@@ -19,6 +19,7 @@ RSpec.configure do |c|
   # ALL=true rspec spec
   c.filter_run_excluding api: true unless ENV['ALL']
   c.include Cards
+  c.include Tasks
 
   DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/test.db")
   DataMapper.finalize

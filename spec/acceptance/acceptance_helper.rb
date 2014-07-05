@@ -9,10 +9,14 @@ ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require 'capybara/rspec'
 
-RSpec.configure do |config|
-  config.include Capybara::DSL
+require File.expand_path '../../../src/main.rb', __FILE__
+
+
+RSpec.configure do |c|
+  c.include Capybara::DSL
+  c.include Tasks
+  c.include Cards
 end
 
-require File.expand_path '../../../src/main.rb', __FILE__
 
 Capybara.app = Sinatra::Application
