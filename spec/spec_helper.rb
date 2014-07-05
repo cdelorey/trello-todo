@@ -15,11 +15,12 @@ end
 RSpec.configure do |c| 
   c.include RSpecMixin
   c.include FactoryGirl::Syntax::Methods
+  c.include Tasks
+  c.include Cards
+
   # to run whole test suite including api specs:
   # ALL=true rspec spec
   c.filter_run_excluding api: true unless ENV['ALL']
-  c.include Cards
-  c.include Tasks
 
   DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/test.db")
   DataMapper.finalize
