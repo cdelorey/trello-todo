@@ -1,9 +1,14 @@
 # Outline:
 
 ### Trello -> Todoist
+- check if task is already in database before adding a new one (will have to use
+  names, since ids will be different every time)
+- assign tasks to cards
+- assign cards to tasks
 - automatically assign all cards in doing list to me
-- remove items from database once they have been removed from list
+- remove items from database once they have been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
+- only add checklist items if they are not already in tasks database
 - move to host
 
 ### Todoist -> Trello 
@@ -58,5 +63,10 @@ __DONE__ create task model
 ###07/05/14
 __DONE__ get tasks from todoist
 __DONE__ filter cards based on presence in database
-__DONE__ turn names of all cards in Doing list into todo items in todoist 
+__DONE__ turn names of all cards in Doing list into todo items in todoist
+
+###07/07/14
+__DONE__ store tasks in database
+
+
 

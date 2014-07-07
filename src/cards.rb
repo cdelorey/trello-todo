@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative 'tasks'
 
 DOING_LIST_ID = "5206965b344ba1b52f000610"
 
@@ -12,7 +13,7 @@ class Card
  property :id, String, :key => true
  property :name, String, :required => true
 
- # has n, :tasks, :constraint => :destroy 
+ #has n, :tasks, :constraint => :destroy 
 end
 
 module Cards
@@ -20,7 +21,8 @@ module Cards
     trello_cards = filter_cards(get_cards_from_trello)
     unless trello_cards.nil?
       store_cards_in_database(trello_cards)
-      create_todoist_tasks(trello_cards)
+      tasks = Tasks.create_todoist_tasks(trello_cards)
+      Tasks.store_tasks_in_database(tasks)
     end
   end
 
@@ -28,13 +30,6 @@ module Cards
   def filter_cards(cards)
     cards.select do |card|
       Card.get(card.id) == nil
-    end
-  end
-
-  # creates tasks from card names and sends them to todoist
-  def create_todoist_tasks(cards)
-    cards.each do |card|
-      Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID)
     end
   end
 
