@@ -1,8 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- check if task is already in database before adding a new one (will have to use
-  names, since ids will be different every time)
 - assign tasks to cards
 - assign cards to tasks
 - automatically assign all cards in doing list to me
@@ -67,6 +65,8 @@ __DONE__ turn names of all cards in Doing list into todo items in todoist
 
 ###07/07/14
 __DONE__ store tasks in database
+__DONE__ - check if task is already in database before adding a new one (will have to use
+            names, since ids will be different every time)
 
 
 

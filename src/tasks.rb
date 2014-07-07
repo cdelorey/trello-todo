@@ -37,11 +37,14 @@ module Tasks
     return tasks
   end
 
+  # returns true if a task with the given name is in the database
+  def task_in_database?(name)
+    return Task.first(:name => name) != nil
+  end
+
   def create_task(id, name) 
-    begin
+    unless(task_in_database?(name))
       puts Task.create(:id =>id, :name => name).saved?
-    rescue DataObjects::IntegrityError
-      puts "task already exists in database"
     end
   end
 
