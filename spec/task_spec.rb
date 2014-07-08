@@ -33,8 +33,7 @@ describe Task do
 
     context "Adding Tasks" do
       before(:each) do
-        tasks = create_todoist_tasks(@cards) 
-        store_tasks_in_database(tasks) 
+        create_todoist_tasks(@cards) 
       end
 
       it "should not be empty" do
@@ -50,8 +49,7 @@ describe Task do
 
       context "When task is already stored" do
         it "does not store the task" do
-          task = create_todoist_tasks(@cards.first)
-          store_tasks_in_database(task)
+          create_todoist_tasks(@cards.first)
           expect(Task.count).to eq(2)
         end
       end

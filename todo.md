@@ -1,8 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- assign tasks to cards
-- assign cards to tasks
 - automatically assign all cards in doing list to me
 - remove items from database once they have been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
@@ -48,25 +46,25 @@ __DONE__ tag all tests that make api calls
 ### 07/01/14
 __DONE__ get all cards from doing list
 
-###07/02/14
+### 07/02/14
 __DONE__ save list of cards currently in doing to database
 __DONE__ fix database issue
 __DONE__ cache api results for relevant tests
 __DONE__ fix bug with adding a single card to database
 __DONE__ only add todo items for cards that are not already in list in database
 
-###07/03/14
+### 07/03/14
 __DONE__ create task model
 
-###07/05/14
+### 07/05/14
 __DONE__ get tasks from todoist
 __DONE__ filter cards based on presence in database
 __DONE__ turn names of all cards in Doing list into todo items in todoist
 
-###07/07/14
+### 07/07/14
 __DONE__ store tasks in database
 __DONE__ - check if task is already in database before adding a new one (will have to use
             names, since ids will be different every time)
 
-
-
+### 07/08/14
+__DONE__ associate cards with tasks

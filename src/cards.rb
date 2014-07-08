@@ -13,7 +13,7 @@ class Card
  property :id, String, :key => true
  property :name, String, :required => true
 
- #has n, :tasks, :constraint => :destroy 
+ has n, :tasks, :constraint => :destroy 
 end
 
 module Cards
@@ -21,8 +21,7 @@ module Cards
     trello_cards = filter_cards(get_cards_from_trello)
     unless trello_cards.nil?
       store_cards_in_database(trello_cards)
-      tasks = Tasks.create_todoist_tasks(trello_cards)
-      Tasks.store_tasks_in_database(tasks)
+      Tasks.create_todoist_tasks(trello_cards)
     end
   end
 
