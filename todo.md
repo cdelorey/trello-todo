@@ -68,3 +68,4 @@ __DONE__ - check if task is already in database before adding a new one (will ha
 
 ### 07/08/14
 __DONE__ associate cards with tasks
+__DONE__ fix task validations

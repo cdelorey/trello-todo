@@ -10,7 +10,7 @@ class Task
  include DataMapper::Resource
  
  property :id, Integer, :key => true
- property :name, String, :required => true
+ property :name, String, :required => true, :unique => true
 
  belongs_to :card 
 end
@@ -37,14 +37,7 @@ module Tasks
     end
   end
 
-  # returns true if a task with the given name is in the database
-  def task_in_database?(name)
-    return Task.first(:name => name) != nil
-  end
-
   def store_task_in_database(task_id, card)
-    unless(task_in_database?(card.name))
-      Task.create(:id =>task_id, :name => card.name, :card_id => card.id)
-    end
+    Task.create(:id =>task_id, :name => card.name, :card_id => card.id)
   end
 end
