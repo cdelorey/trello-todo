@@ -1,6 +1,7 @@
 require 'data_mapper'
 require_relative 'tasks'
 
+
 DOING_LIST_ID = "5206965b344ba1b52f000610"
 
 ##
@@ -36,6 +37,24 @@ module Cards
   def get_cards_from_trello
     list = get_doing_list
     return list.cards
+  end
+
+  def assign_cards_to_me(cards)
+    me = Trello::Member.find("me")
+    cards.each do |card|
+      unless(card.members.first == me)
+        card.add_member(me)
+      end
+    end
+  end
+
+  def unassign_me_from_cards(cards)
+    me = Trello::Member.find("me")
+    cards.each do |card|
+      unless(card.members == nil)
+        card.remove_member(me)
+      end
+    end
   end
 
   def get_doing_list

@@ -77,8 +77,23 @@ describe Card do
     end
   end
 
-  context "creating tasks from cards" do 
+  context "assigning cards", :api => true do
 
+    it "assigns all cards in doing list to me" do 
+      cards = get_cards_from_trello
+      assign_cards_to_me(cards)     
+      wait 20 do
+        cards = get_cards_from_trello  
+        cards.each do |card|
+          expect(card.members).not_to eq(nil)
+          expect(card.members.first.username).to eq("cdelorey")
+        end
+      end
+      unassign_me_from_cards(cards)
+    end
+
+    it "unassigns me from card when moved from doing list" do 
+    end
   end
 
 end

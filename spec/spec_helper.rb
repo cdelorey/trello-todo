@@ -5,6 +5,7 @@ require 'factory_girl'
 require 'dm-transactions'
 require 'database_cleaner'
 require File.expand_path '../../src/main.rb', __FILE__
+require File.expand_path '../support/test_helpers.rb', __FILE__
 
 
 module RSpecMixin
@@ -17,6 +18,7 @@ RSpec.configure do |c|
   c.include FactoryGirl::Syntax::Methods
   c.include Tasks
   c.include Cards
+  c.include TestHelpers
 
   # to run whole test suite including api specs:
   # ALL=true rspec spec

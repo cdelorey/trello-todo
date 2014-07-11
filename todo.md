@@ -1,7 +1,6 @@
 # Outline:
 
 ### Trello -> Todoist
-- automatically assign all cards in doing list to me
 - remove items from database once they have been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
 - only add checklist items if they are not already in tasks database
@@ -69,3 +68,6 @@ __DONE__ - check if task is already in database before adding a new one (will ha
 ### 07/08/14
 __DONE__ associate cards with tasks
 __DONE__ fix task validations
+
+### 07/11/14
+__DONE__ automatically assign all cards in doing list to me
