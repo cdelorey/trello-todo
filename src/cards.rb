@@ -1,7 +1,6 @@
 require 'data_mapper'
 require_relative 'tasks'
 
-
 DOING_LIST_ID = "5206965b344ba1b52f000610"
 
 ##
@@ -30,18 +29,9 @@ module Cards
 
   # takes a list of cards and removes all cards that are already stored in database
   def filter_cards(cards)
-    # cards is a collection
-    if cards.respond_to?(:count)
-      return cards.select do |card|
-        Card.get(card.id) == nil
-      end
-    # cards is a single card object
-    else
-      if Card.get(cards.id) == nil
-        return cards 
-      else 
-        return nil 
-      end
+    cards = Array(cards) unless cards.respond_to?(:count) 
+    return cards.select do |card|
+      Card.get(card.id) == nil
     end
   end
 
@@ -81,15 +71,10 @@ module Cards
     end
   end
 
-  def store_cards_in_database(cards)
+  def store_cards_in_database(cards)      
     cards = filter_cards(cards)
     unless cards.nil?
-      # cards is a collection
-      if cards.respond_to?(:count)
-        cards.each do |card|
-          create_card(card.id, card.name)
-        end
-      else # cards is a single card
+      cards.each do |card|
         create_card(card.id, card.name)
       end
     end

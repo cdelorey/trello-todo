@@ -28,34 +28,18 @@ module Tasks
   def create_todoist_tasks(cards)
     cards = filter_tasks(cards)
     unless cards.nil?
-      # cards is a collection
-      if cards.respond_to?(:count)
-        cards.each do |card|
-          id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
-          store_task_in_database(id, card)
-        end
-      # cards is a single card object
-      else
-        id = Todoist::Task.create(cards.name, PROGRAMMING_PROJECT_ID).id
-        store_task_in_database(id, cards)
+      cards.each do |card|
+        id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
+        store_task_in_database(id, card)
       end
     end
   end
 
   # takes a list of cards and removes all cards that are already stored as tasks in database
   def filter_tasks(cards)
-    # cards is a collection
-    if cards.respond_to?(:count)
-      return cards.select do |card|
-        Task.first(:name => card.name) == nil
-      end
-    # cards is a single card object  
-    else
-      if Task.first(:name => cards.name) == nil
-        return cards 
-      else 
-        return nil 
-      end
+    cards = Array(cards) unless cards.respond_to?(:count)
+    return cards.select do |card|
+      Task.first(:name => card.name) == nil
     end
   end
 
