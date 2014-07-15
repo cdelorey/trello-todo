@@ -18,8 +18,10 @@ class Card
 end
 
 module Cards
+  extend self
+
   def move_cards_from_trello_to_todoist
-    trello_cards = filter_cards(get_cards_from_trello)
+    trello_cards = get_cards_from_trello
     unless trello_cards.nil?
       store_cards_in_database(trello_cards)
       Tasks.create_todoist_tasks(trello_cards)
@@ -28,8 +30,18 @@ module Cards
 
   # takes a list of cards and removes all cards that are already stored in database
   def filter_cards(cards)
-    cards.select do |card|
-      Card.get(card.id) == nil
+    # cards is a collection
+    if cards.respond_to?(:count)
+      return cards.select do |card|
+        Card.get(card.id) == nil
+      end
+    # cards is a single card object
+    else
+      if Card.get(cards.id) == nil
+        return cards 
+      else 
+        return nil 
+      end
     end
   end
 
@@ -70,13 +82,16 @@ module Cards
   end
 
   def store_cards_in_database(cards)
-    # cards is a collection
-    if cards.respond_to?(:count)
-      cards.each do |card|
+    cards = filter_cards(cards)
+    unless cards.nil?
+      # cards is a collection
+      if cards.respond_to?(:count)
+        cards.each do |card|
+          create_card(card.id, card.name)
+        end
+      else # cards is a single card
         create_card(card.id, card.name)
       end
-    else # cards is a single card
-      create_card(card.id, card.name)
     end
   end
 end

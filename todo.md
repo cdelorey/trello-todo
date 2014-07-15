@@ -1,6 +1,7 @@
 # Outline:
 
 ### Trello -> Todoist
+- fix handling of array of cards vs single card
 - remove items from database once they have been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
 - only add checklist items if they are not already in tasks database
@@ -71,3 +72,7 @@ __DONE__ fix task validations
 
 ### 07/11/14
 __DONE__ automatically assign all cards in doing list to me
+
+### 07/15/14
+__DONE__ fix bug with adding todoist tasks
+

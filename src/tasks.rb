@@ -10,7 +10,7 @@ class Task
  include DataMapper::Resource
  
  property :id, Integer, :key => true
- property :name, String, :required => true, :unique => true
+ property :name, String, :required => true, :unique => true, :index => true
 
  belongs_to :card 
 end
@@ -26,14 +26,36 @@ module Tasks
 
   # creates tasks from card names and sends them to todoist
   def create_todoist_tasks(cards)
-    if cards.respond_to?(:count)
-      cards.each do |card|
-        id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
-        store_task_in_database(id, card)
+    cards = filter_tasks(cards)
+    unless cards.nil?
+      # cards is a collection
+      if cards.respond_to?(:count)
+        cards.each do |card|
+          id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
+          store_task_in_database(id, card)
+        end
+      # cards is a single card object
+      else
+        id = Todoist::Task.create(cards.name, PROGRAMMING_PROJECT_ID).id
+        store_task_in_database(id, cards)
       end
+    end
+  end
+
+  # takes a list of cards and removes all cards that are already stored as tasks in database
+  def filter_tasks(cards)
+    # cards is a collection
+    if cards.respond_to?(:count)
+      return cards.select do |card|
+        Task.first(:name => card.name) == nil
+      end
+    # cards is a single card object  
     else
-      id = Todoist::Task.create(cards.name, PROGRAMMING_PROJECT_ID).id
-      store_task_in_database(id, cards)
+      if Task.first(:name => cards.name) == nil
+        return cards 
+      else 
+        return nil 
+      end
     end
   end
 

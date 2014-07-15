@@ -47,10 +47,17 @@ describe Task do
         end 
       end
 
-      context "When task is already stored" do
+      context "When task is already stored", :api => true do
         it "does not store the task" do
           create_todoist_tasks(@cards.first)
           expect(Task.count).to eq(2)
+        end
+
+        it "does not send a new task to todoist", :api => true do
+          task_count_before = get_tasks_from_todoist.count
+          create_todoist_tasks(@cards.first)
+          task_count_after = get_tasks_from_todoist.count
+          expect(task_count_after).to eq(task_count_before)
         end
       end
     end    
