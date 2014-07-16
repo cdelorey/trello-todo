@@ -13,16 +13,14 @@ feature "Trello to Todoist" do
     move_cards_from_trello_to_todoist
     task_names = tasks.map { |task| task.content }
     expect(task_names).to include(card.name)
-  end
-
-  scenario "Moving Trello card names that are already todoist tasks" do
+    remove_all_tasks
   end
 
   scenario "Moving Trello checklist items to todoist subtasks" do
   end
 
-  scenario "Moving Trello checklist items that are already todoist subtasks" do
+  scenario "Moving a Trello card from 'Doing' to 'Done'" do
+    
   end
-
 
 end

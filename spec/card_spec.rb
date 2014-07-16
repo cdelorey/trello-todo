@@ -93,6 +93,40 @@ describe Card do
     end
 
     it "unassigns me from card when moved from doing list" do 
+
+    end
+  end
+
+  context "moving cards from 'Doing' list to 'Done' list", :api => true do
+    before(:all) do
+      @cards = get_cards_from_trello
+      move_cards_from_trello_to_todoist
+      @moved_card = Card.get(@cards.first.id)
+      @task = @moved_card.tasks.first
+      move_to_done_list(@moved_card)
+    end
+
+    it "is no longer in the Doing list" do
+      cards = Trello::List.find(DOING_LIST_ID).cards
+      card_ids = cards.map { |card| card.id }
+      expect(card_ids).not_to include(@moved_card.id) 
+    end
+
+    it "is in the 'Done' list" do
+      cards = Trello::List.find(DONE_LIST_ID).cards
+      card_ids = cards.map { |card| card.id }
+      expect(card_ids).to include(@moved_card.id) 
+    end
+
+    it "is deleted from the database" do
+      expect(Card.get(@moved_card.id)).to eq(nil)
+    end
+
+    specify "its associated task is deleted from task database" do
+      expect(Task.get(@task)).to eq(nil)
+    end
+
+    specify "its associated task is deleted from todoist" do
     end
   end
 

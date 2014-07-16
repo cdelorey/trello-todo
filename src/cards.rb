@@ -2,6 +2,7 @@ require 'data_mapper'
 require_relative 'tasks'
 
 DOING_LIST_ID = "5206965b344ba1b52f000610"
+DONE_LIST_ID = "5206965b344ba1b52f000611"
 
 ##
 # Card
@@ -57,6 +58,14 @@ module Cards
         card.remove_member(me)
       end
     end
+  end
+
+  # moves given card from doing list to done list
+  def move_to_done_list(card)
+    trello_card = Trello::Card.find(card.id)
+    trello_card.move_to_list(DONE_LIST_ID)
+    Tasks.delete_task(card)
+    card.destroy
   end
 
   def get_doing_list

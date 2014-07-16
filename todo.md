@@ -1,8 +1,8 @@
 # Outline:
 
 ### Trello -> Todoist
-- add way to delete things added to trello or todoist during tests
 - remove items from database once they have been removed from doing list
+- remove todoist tasks attached to card once card has been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
 - only add checklist items if they are not already in tasks database
 - move to host
@@ -76,4 +76,7 @@ __DONE__ automatically assign all cards in doing list to me
 ### 07/15/14
 __DONE__ fix bug with adding todoist tasks
 __DONE__ fix handling of array of cards vs single card
+__DONE__ add way to delete things added to trello or todoist during tests
+__DONE__ move cards from doing list to done list
+
 

@@ -46,4 +46,22 @@ module Tasks
   def store_task_in_database(task_id, card)
     Task.create(:id =>task_id, :name => card.name, :card_id => card.id)
   end
+
+  def delete_task(card)
+    task = Task.first(:card_id => card.id)
+    delete_tasks_from_todoist(Array(card.id))
+    task.destroy
+  end
+
+  def delete_tasks_from_todoist(ids)
+    Todoist::Base.put('/deleteItems', :query => {ids: ids.to_json})
+  end
+
+  # removes all tasks from database and deletes corresponding task in todoist
+  def remove_all_tasks
+    ids = []
+    Task.all.each { |task| ids << task.id }
+    delete_tasks_from_todoist(ids)
+    Task.destroy
+  end
 end

@@ -36,6 +36,10 @@ describe Task do
         create_todoist_tasks(@cards) 
       end
 
+      after(:each) do
+        remove_all_tasks
+      end
+
       it "should not be empty" do
         expect(Task.count).to be > 0
       end
@@ -59,6 +63,23 @@ describe Task do
           task_count_after = get_tasks_from_todoist.count
           expect(task_count_after).to eq(task_count_before)
         end
+      end
+    end
+
+    context "Removing tasks", :api => true do
+
+      it "should clear out database" do
+        create_todoist_tasks(@cards)
+        remove_all_tasks
+        expect(Task.count).to eq(0)
+      end
+
+      it "should delete tasks from todoist" do
+        create_todoist_tasks(@cards)
+        task_count_before = get_tasks_from_todoist.count
+        remove_all_tasks
+        task_count_after = get_tasks_from_todoist.count
+        expect(task_count_before).to be > task_count_after
       end
     end    
   end
