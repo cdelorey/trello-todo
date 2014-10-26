@@ -35,9 +35,7 @@ module Cards
   # takes a list of cards and removes all cards that are already stored in database
   def filter_cards(cards)
     cards = Array(cards) unless cards.respond_to?(:count) 
-    return cards.select do |card|
-      Card.get(card.id) == nil
-    end
+    return cards.select { |card| Card.get(card.id).nil? } #TODO: move this to method
   end
 
   # retrieves all cards from the Doing list in Trello
@@ -54,17 +52,11 @@ module Cards
   end
 
   def assign_cards_to_me(cards)
-    cards.each do |card|
-      card.add_member(me) unless am_member?(card)
-    end
+    cards.each { |card| card.add_member(me) unless am_member?(card) }
   end
 
   def unassign_me_from_cards(cards)
-    cards.each do |card|
-      if card.members
-        card.remove_member(me)
-      end
-    end
+    cards.each { |card| card.remove_member(me) if am_member?(card) }
   end
 
   # moves given card from doing list to done list
@@ -89,11 +81,7 @@ module Cards
 
   def store_cards_in_database(cards)      
     cards = filter_cards(cards)
-    if cards
-      cards.each do |card|
-        create_card(card.id, card.name)
-      end
-    end
+    cards.each { |card| create_card(card.id, card.name) } if cards
   end
 end
 

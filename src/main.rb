@@ -1,6 +1,6 @@
 # trello-todo
 # 
-# This app links tasks between the Trello and Todoist services.
+# This utility links tasks between the Trello and Todoist services.
 # It simplifies the workflow in which high-level planning is done in Trello
 # and low-level task management is done in Todoist by automatically transfering
 # changes made in one service to the other.

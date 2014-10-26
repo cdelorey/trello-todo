@@ -38,9 +38,7 @@ module Tasks
   # takes a list of cards and removes all cards that are already stored as tasks in database
   def filter_tasks(cards)
     cards = Array(cards) unless cards.respond_to?(:count)
-    return cards.select do |card|
-      Task.first(:name => card.name) == nil
-    end
+    return cards.select { |card| Task.first(:name => card.name).nil? } #TODO: move this to method with descriptive name
   end
 
   def store_task_in_database(task_id, card)
