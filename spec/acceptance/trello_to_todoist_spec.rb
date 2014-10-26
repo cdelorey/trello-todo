@@ -9,7 +9,7 @@ feature "Trello to Todoist" do
   given(:card) { get_cards_from_trello.first }
   given(:tasks) { get_tasks_from_todoist } 
 
-  scenario "Moving Trello card names to todoist tasks" do
+  scenario "Moving Trello card names to todoist tasks", :api => true do
     move_cards_from_trello_to_todoist
     task_names = tasks.map { |task| task.content }
     expect(task_names).to include(card.name)

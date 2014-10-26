@@ -4,6 +4,7 @@ ruby '2.1.1'
 gem 'sinatra'
 gem 'ruby-trello'
 gem 'todoist'
+gem 'data_mapper'
 
 group :development, :test do 
   gem 'rspec'
@@ -16,6 +17,7 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'database_cleaner'
   gem 'dm-transactions'
+  gem 'dm-sqlite-adapter'
 end
 
 group :production do

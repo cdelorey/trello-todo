@@ -27,7 +27,7 @@ module Tasks
   # creates tasks from card names and sends them to todoist
   def create_todoist_tasks(cards)
     cards = filter_tasks(cards)
-    unless cards.nil?
+    if cards
       cards.each do |card|
         id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
         store_task_in_database(id, card)

@@ -22,7 +22,7 @@ module Cards
 
   def move_cards_from_trello_to_todoist
     trello_cards = get_cards_from_trello
-    unless trello_cards.nil?
+    if trello_cards
       store_cards_in_database(trello_cards)
       Tasks.create_todoist_tasks(trello_cards)
     end
@@ -54,7 +54,7 @@ module Cards
   def unassign_me_from_cards(cards)
     me = Trello::Member.find("me")
     cards.each do |card|
-      unless(card.members == nil)
+      if card.members
         card.remove_member(me)
       end
     end
@@ -82,7 +82,7 @@ module Cards
 
   def store_cards_in_database(cards)      
     cards = filter_cards(cards)
-    unless cards.nil?
+    if cards
       cards.each do |card|
         create_card(card.id, card.name)
       end
