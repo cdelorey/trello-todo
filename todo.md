@@ -16,8 +16,10 @@
 
 ### Generalize 
 - use cards from all "Doing" lists on every board
-- add forms on project index.html to configure which lists/boards to use (MAYBE)
-- add different todo app apis (maybe)
+
+### Maybe
+- configure which lists/boards to use
+- add different todo app apis 
 
 
 _______________________________________________________________________________
