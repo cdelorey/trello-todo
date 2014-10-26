@@ -20,6 +20,10 @@ end
 module Cards
   extend self
 
+  def me
+    @me ||= Trello::Member.find("me")
+  end
+
   def move_cards_from_trello_to_todoist
     trello_cards = get_cards_from_trello
     if trello_cards
@@ -42,17 +46,20 @@ module Cards
     return list.cards
   end
 
+  # returns true if I am assigned as a member to this card
+  def am_member?(card)
+    # this works because I'm the only possible member.
+    # if this changes, this method will have to search the members list instead
+    card.members.first == me 
+  end
+
   def assign_cards_to_me(cards)
-    me = Trello::Member.find("me")
     cards.each do |card|
-      unless(card.members.first == me)
-        card.add_member(me)
-      end
+      card.add_member(me) unless am_member?(card)
     end
   end
 
   def unassign_me_from_cards(cards)
-    me = Trello::Member.find("me")
     cards.each do |card|
       if card.members
         card.remove_member(me)

@@ -2,6 +2,7 @@
 
 ### Trello -> Todoist
 - switch to test list id in tests so they don't affect real doing list
+- restore cards to test list after test that deletes them
 - remove items from database once they have been removed from doing list
 - remove todoist tasks attached to card once card has been removed from doing list
 - add checklist items on cards as subtasks for card's main task in todoist
