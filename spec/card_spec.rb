@@ -90,11 +90,7 @@ describe Card do
         end
       end
       unassign_me_from_cards(cards)
-    end
-
-    it "unassigns me from card when moved from doing list" do 
-
-    end
+    end   
   end
 
   context "moving cards from 'Doing' list to 'Done' list", :api => true do
@@ -104,6 +100,10 @@ describe Card do
       @moved_card = Card.get(@cards.first.id)
       @task = @moved_card.tasks.first
       move_to_done_list(@moved_card)
+    end
+
+    after(:all) do
+      restore_to_doing_list(@moved_card)
     end
 
     it "is no longer in the Doing list" do

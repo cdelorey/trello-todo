@@ -26,10 +26,12 @@ module Cards
 
   def move_cards_from_trello_to_todoist
     trello_cards = get_cards_from_trello
-    if trello_cards
-      store_cards_in_database(trello_cards)
-      Tasks.create_todoist_tasks(trello_cards)
-    end
+    create_cards_and_tasks(trello_cards) if trello_cards
+  end
+
+  def create_cards_and_tasks(cards)
+    store_cards_in_database(cards)
+    Tasks.create_todoist_tasks(cards)
   end
 
   # takes a list of cards and removes all cards that are already stored in database
@@ -65,6 +67,13 @@ module Cards
     trello_card.move_to_list(DONE_LIST_ID)
     Tasks.delete_task(card)
     card.destroy
+  end
+
+  # moves card back to doing list, and re-adds associated tasks to todist
+  def restore_to_doing_list(card)
+    trello_card = Trello::Card.find(card.id)
+    trello_card.move_to_list(DOING_LIST_ID)
+    create_cards_and_tasks(card)
   end
 
   def get_doing_list
