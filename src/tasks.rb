@@ -11,6 +11,7 @@ class Task
  
  property :id, Integer, :key => true
  property :name, String, :required => true, :unique => true, :index => true
+ property :parent_task_id, String
 
  belongs_to :card 
 end

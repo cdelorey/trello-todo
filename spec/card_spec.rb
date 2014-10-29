@@ -130,4 +130,35 @@ describe Card do
     end
   end
 
+  context "working with checklists" do
+    
+    context "getting unchecked checklist item" do
+      before(:all) do
+        @cards = get_cards_from_trello
+      end
+
+      it "returns correct item when item is first in list" do
+        item = get_first_unchecked_item(@cards[0])
+        expect(item['state']).to eq('incomplete')
+        expect(item['name']).to eq('Unchecked Item')
+      end
+
+      it "returns correct item when item is second in list" do
+        item = get_first_unchecked_item(@cards[1])
+        expect(item['state']).to eq('incomplete')
+        expect(item['name']).to eq('unchecked item')
+      end
+
+      it "returns nil when no unchecked item exists" do
+        item = get_first_unchecked_item(@cards[2])
+        expect(item).to eq(nil) 
+      end
+
+      it "returns nil when there is no checklist on the card" do
+        item = get_first_unchecked_item(@cards[3])
+        expect(item).to eq(nil)
+      end
+    end
+  end
+
 end

@@ -1,7 +1,12 @@
 # Outline:
 
 ### Trello -> Todoist
-- add checklist items on cards as subtasks for card's main task in todoist
+- add checklist items on cards as subtasks for card's main task in 
+	- only add first task on checklist to todoist
+	- when a subtask is checked off:
+		- add next task in checklst if it exists
+		- move card to done list otherwise (only if a checklist exists)
+- add support for multiple checklists
 - remove subtasks when deleting main task in todoist
 - only add checklist items if they are not already in tasks database
 - move to host
@@ -85,5 +90,6 @@ __DONE__ add method to restore completed tasks to doing list
 __DONE__ restore cards to test list after test that moves them
 __DONE__ remove items from database once they have been removed from doing list
 __DONE__ remove todoist tasks attached to card once card has been removed from doing list
+__DONE__ add method to get a card's first unchecked list item 
 
 
