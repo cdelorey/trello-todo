@@ -92,4 +92,7 @@ __DONE__ remove items from database once they have been removed from doing list
 __DONE__ remove todoist tasks attached to card once card has been removed from doing list
 __DONE__ add method to get a card's first unchecked list item 
 
+### 10/30/14
+__DONE__ change get_first_unchecked_item to take an array of check_items instead of an entire card
+
 

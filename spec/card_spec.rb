@@ -138,25 +138,20 @@ describe Card do
       end
 
       it "returns correct item when item is first in list" do
-        item = get_first_unchecked_item(@cards[0])
+        item = get_first_unchecked_item(@cards[0].checklists.first.check_items)
         expect(item['state']).to eq('incomplete')
         expect(item['name']).to eq('Unchecked Item')
       end
 
       it "returns correct item when item is second in list" do
-        item = get_first_unchecked_item(@cards[1])
+        item = get_first_unchecked_item(@cards[1].checklists.first.check_items)
         expect(item['state']).to eq('incomplete')
         expect(item['name']).to eq('unchecked item')
       end
 
       it "returns nil when no unchecked item exists" do
-        item = get_first_unchecked_item(@cards[2])
+        item = get_first_unchecked_item(@cards[2].checklists.first.check_items)
         expect(item).to eq(nil) 
-      end
-
-      it "returns nil when there is no checklist on the card" do
-        item = get_first_unchecked_item(@cards[3])
-        expect(item).to eq(nil)
       end
     end
   end

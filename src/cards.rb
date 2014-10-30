@@ -95,12 +95,9 @@ module Cards
 
   # gets first unchecked item in card's first checklist
   # returns nil if there is no unchecked item
-  def get_first_unchecked_item(card)
-    if card.checklists.first
-      check_items = card.checklists.first.check_items
-      index = check_items.index { |x| x['state'] == 'incomplete' }
-      index ? check_items[index] : nil
-    end
+  def get_first_unchecked_item(check_items)
+    index = check_items.index { |x| x['state'] == 'incomplete' }
+    index ? check_items[index] : nil
   end
 end
 
