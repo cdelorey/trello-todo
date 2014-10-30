@@ -9,9 +9,9 @@ PROGRAMMING_PROJECT_ID = 100222382
 class Task
  include DataMapper::Resource
  
- property :id, Integer, :key => true
+ property :id, Integer, :key => true  # task id created by todoist
  property :name, String, :required => true, :unique => true, :index => true
- property :parent_task_id, String
+ property :subtask, Boolean       
 
  belongs_to :card 
 end

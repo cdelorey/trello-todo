@@ -1,6 +1,8 @@
 # Outline:
 
 ### Trello -> Todoist
+- add method to delete todoist tasks
+- delete todoist tasks made during tests
 - add checklist items on cards as subtasks for card's main task in 
 	- only add first task on checklist to todoist
 	- when a subtask is checked off:
@@ -94,5 +96,6 @@ __DONE__ add method to get a card's first unchecked list item
 
 ### 10/30/14
 __DONE__ change get_first_unchecked_item to take an array of check_items instead of an entire card
+__DONE__ refactor task creation
 
 
