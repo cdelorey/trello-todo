@@ -13,7 +13,7 @@ describe Task do
     let(:task_names) { tasks.map { |task| task.content } }
 
     it "gets correct cards" do
-      expect(task_names).to include("Eloquent Ruby")
+      expect(task_names).to include("Learn SQL the Hard Way")
     end
 
     it "gets cards from correct project" do
