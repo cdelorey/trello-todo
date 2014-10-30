@@ -19,7 +19,8 @@
       name: Book
     - color: orange
       name: Exercises
-    :cover_image_id: 
+    :cover_image_id:
+    :checklists: nil 
     :badges:
       votes: 0
       viewingMemberVoted: false
@@ -32,13 +33,7 @@
       description: false
       due: 
     :card_members: 
-  client: &1 !ruby/object:Trello::Client
-    configuration: !ruby/object:Trello::Configuration
-      developer_public_key: 12345abc
-      member_token: 4567xyz
-    auth_policy: !ruby/object:Trello::Authorization::BasicAuthPolicy
-      developer_public_key: 12345abc
-      member_token: 4567xyz
+
 - !ruby/object:Trello::Card
   attributes:
     :id: 987th
@@ -61,7 +56,8 @@
       name: Exercises
     - color: red
       name: Tutorial
-    :cover_image_id: 
+    :cover_image_id:
+    :checklists: nil 
     :badges:
       votes: 0
       viewingMemberVoted: false
@@ -74,4 +70,4 @@
       description: true
       due: 
     :card_members: 
-  client: *1
+

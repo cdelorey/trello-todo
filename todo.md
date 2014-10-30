@@ -1,8 +1,10 @@
 # Outline:
 
 ### Trello -> Todoist
+- decouple adding tasks to database from adding tasks to services to make testing easier
 - add method to delete todoist tasks
 - delete todoist tasks made during tests
+- change cheklist tests to use fake data
 - add checklist items on cards as subtasks for card's main task in 
 	- only add first task on checklist to todoist
 	- when a subtask is checked off:

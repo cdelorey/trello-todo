@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative 'cards'
 
 PROGRAMMING_PROJECT_ID = 100222382
 
@@ -30,10 +31,22 @@ module Tasks
     cards = filter_tasks(cards)
     if cards
       cards.each do |card|
-        id = Todoist::Task.create(card.name, PROGRAMMING_PROJECT_ID).id
-        store_task_in_database(id, card)
+        create_todoist_task(card.name, false, card.id)
+        create_subtasks(card)
       end
     end
+  end
+
+  def create_todoist_task(name, is_subtask, card_id, todoist_project_id=PROGRAMMING_PROJECT_ID)
+    todoist_task_id = Todoist::Task.create(name, todoist_project_id).id
+    store_task_in_database(todoist_task_id, name, is_subtask, card_id)
+  end
+
+  # creates a task from the card's first unchecked checklist item
+  def create_subtasks(card)
+    #if card.checklists
+    #  task_item = Cards.get_first_unchecked_item(card.checklists.first.check_items)   
+    #end 
   end
 
   # takes a list of cards and removes all cards that are already stored as tasks in database
@@ -42,8 +55,8 @@ module Tasks
     return cards.select { |card| Task.first(:name => card.name).nil? } #TODO: move this to method with descriptive name
   end
 
-  def store_task_in_database(task_id, card)
-    Task.create(:id =>task_id, :name => card.name, :card_id => card.id)
+  def store_task_in_database(task_id, name, is_subtask, card_id)
+    Task.create(:id =>task_id, :name => name, :subtask => is_subtask, :card_id => card_id)
   end
 
   def delete_task(card)

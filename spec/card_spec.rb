@@ -132,6 +132,7 @@ describe Card do
 
   context "working with checklists" do
     
+    # :api => true
     context "getting unchecked checklist item" do
       before(:all) do
         @cards = get_cards_from_trello

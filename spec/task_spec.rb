@@ -68,19 +68,41 @@ describe Task do
 
     context "Removing tasks", :api => true do
 
-      it "should clear out database" do
+      it "clears out database" do
         create_todoist_tasks(@cards)
         remove_all_tasks
         expect(Task.count).to eq(0)
       end
 
-      it "should delete tasks from todoist" do
+      it "deletes tasks from todoist" do
         create_todoist_tasks(@cards)
         task_count_before = get_tasks_from_todoist.count
         remove_all_tasks
         task_count_after = get_tasks_from_todoist.count
         expect(task_count_before).to be > task_count_after
       end
-    end    
+    end
+
+    context "Adding Subtasks" do
+      it "stores subtask in database" do
+        #database_task_count = Task.count
+        #create_subtasks(@cards[1])
+        #expect(Task.count).to eq(database_task_count + 1)
+      end
+    end  
+  end
+
+  # :api => true
+  context "Creating subtasks" do
+    before(:all) do
+      #@cards = get_cards_from_trello
+      #@todoist_task_count = get_tasks_from_todoist.count
+
+    end
+
+
+    it "adds task to todoist" do
+      #pp @cards
+    end
   end
 end
